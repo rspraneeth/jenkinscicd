@@ -15,6 +15,12 @@ public class JenkinscicdApplication {
         return "Hello "+name+", Good day!";
     }
 
+
+    @GetMapping()
+    public String greet(){
+        return "Hello "+" RSP!"+", Good day!";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(JenkinscicdApplication.class, args);
     }
