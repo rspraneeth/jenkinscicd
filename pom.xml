@@ -11,7 +11,7 @@
     <groupId>com.rsp</groupId>
     <artifactId>jenkinscicd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>jenkinscicd</name>
     <description>jenkinscicd</description>
     <properties>
