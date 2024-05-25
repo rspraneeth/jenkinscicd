@@ -32,9 +32,9 @@ pipeline{
         stage("Push image to hub"){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'dockpwd', variable: 'dockpwd')]) {
-                        bat "docker login -u praneethrsp -p ${dockpwd}"
-                        bat "docker push praneethrsp/docker-cicd:2.0"
+                    withCredentials([string(credentialsId: 'hubpwd', variable: 'dockerpwd')]){
+                        bat "docker login -u praneethrsp -p ${dockerpwd}"
+                        bat "docker push praneethrsp/docker-cicd:4.0"
                     }
                 }
             }
