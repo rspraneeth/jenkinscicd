@@ -5,20 +5,20 @@ pipeline{
         maven "maven"
     }
 
+    environment{
+                APP_NAME = "spring-docker-cicd"
+                RELEASE_NO="1.0.0"
+                DOCKER_USER="praneethrsp"
+                IMAGE_NAME="${DOCKER_USER}"+"/"+"APP_NAME"
+                IMAGE_TAG="${RELEASE_NO}.${BUILD_NUMBER}"
+            }
+
     stages{
 
         stage("SCM Checkout"){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rspraneeth/jenkinscicd']])
             }
-        }
-
-        environment{
-            APP_NAME = "spring-docker-cicd"
-            RELEASE_NO="1.0.0"
-            DOCKER_USER="praneethrsp"
-            IMAGE_NAME="${DOCKER_USER}"+"/"+"APP_NAME"
-            IMAGE_TAG="${RELEASE_NO}.${BUILD_NUMBER}"
         }
 
         stage("Maven Build Process"){
