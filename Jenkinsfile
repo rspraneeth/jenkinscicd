@@ -11,6 +11,7 @@ pipeline{
         DOCKER_USER= "praneethrsp"
         IMAGE_NAME= "${DOCKER_USER}"+"/"+"${APP_NAME}"
         IMAGE_TAG= "${RELEASE_NO}.${BUILD_NUMBER}"
+        IMAGE_NAME_TAG = "${IMAGE_NAME}:${IMAGE_TAG}"
     }
 
     stages{
@@ -32,8 +33,7 @@ pipeline{
         stage("Docker build image"){
             steps{
                 script{
-                    def imageNameTag = "${IMAGE_NAME}:${IMAGE_TAG}"
-                    bat "docker build -t ${imageNameTag} ."
+                    bat "docker build -t ${IMAGE_NAME_TAG} ."
 //                     bat 'docker build -t praneethrsp/docker-cicd:2.0 .'
                 }
             }
