@@ -60,7 +60,7 @@ pipeline{
 
     post{
         always{
-            emailText attachLog: true, body: '''<html>
+            emailext attachLog: true, body: '''<html>
 <body>
   <p>Build Status: ${BUILD_STATUS}</p>
   <p>Build Number: ${BUILD_NUMBER}</p>
