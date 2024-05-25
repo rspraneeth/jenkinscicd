@@ -33,8 +33,8 @@ pipeline{
             steps{
                 script{
                     withCredentials([string(credentialsId: 'dockpwd', variable: 'dockpwd')]) {
-                        bat 'docker login -u praneethrsp -p ${dockpwd}'
-                        bat 'docker push praneethrsp/docker-cicd:2.0'
+                        bat "docker login -u praneethrsp -p ${dockpwd}"
+                        bat "docker push praneethrsp/docker-cicd:2.0"
                     }
                 }
             }
