@@ -32,7 +32,8 @@ pipeline{
         stage("Docker build image"){
             steps{
                 script{
-                    bat 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+                    def imageNameTag = "${IMAGE_NAME}:${IMAGE_TAG}"
+                    bat "docker build -t ${imageNameTag} ."
 //                     bat 'docker build -t praneethrsp/docker-cicd:2.0 .'
                 }
             }
